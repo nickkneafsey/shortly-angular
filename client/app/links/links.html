@@ -3,7 +3,15 @@
 <!--   <ul>
       <li ng-repeat="todo in todos track by $index" ng-click="removeTodo($index)">{{ todo }}</li>
     </ul> -->
+    <div class='navigation'>
     <ul>
-      <li ng-repeat="link in data.links track by $index">{{ link }}</li>
+      <li><a href='/#/links'>All Links</a></li>
+      <li><a href='/#/shorten'>Shorten</a></li>
+      <li><a href='/logout' class='logout'>Logout</a></li>
+    </ul>
+    </div>
+
+    <ul>
+      <li ng-repeat="link in data.links track by $index"><p>{{ link.title }}</p>{{ link.url }}<p><a href={{link.base_url}}/{{link.code}}>{{link.base_url}}/{{link.code}}</a></p><p>{{link.visits}} visits</p></li>
     </ul>
 </div>
