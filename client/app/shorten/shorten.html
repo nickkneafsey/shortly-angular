@@ -4,12 +4,15 @@
     <ul>
       <li><a href='/#/links'>All Links</a></li>
       <li><a href='/#/shorten'>Shorten</a></li>
-      <li><a href='/#/signin'>Logout</a></li>
+      <li><a ng-click='logout()' href='/#/signin'>Logout</a></li>
     </ul>
     </div>
   <h1>Shorten</h1>
-  <form name="shortenURL" ng-submit='addLink()'>
-    <input type='text' ng-model='link.url'>    
+  <form name="shortenURL" ng-submit='addLink()' ng-init="valid">
+    <input type='url' ng-model='link.url' ng-keydown="valid=shortenURL.$error.url[0].$valid">
+    <div ng-if="valid === false">
+       <p>Invalid!</p>
+   </div> 
   </form>
 </div>
 
