@@ -1,9 +1,16 @@
 <div id='signup' ng-controller="AuthController">
   <h1>signup</h1>
+
   <form name="signupForm" ng-submit='signup()'>
-    <input type='text' ng-model='user.username'>
+    <input type='text' ng-model='user.username' ng-required="string" ng-minlength="4" ng-maxlength="20" ng-pattern='/[A-Za-z0-9]/'>
     <input type="password" ng-model='user.password'>
     <button>signup</button>
+    <div role="alert">
+    <span class="error" ng-show="signupForm.input.$error.required">
+      Required!</span>
+    <span class="error" ng-show="signupForm.input.$error.pattern">
+      Letters and Numbers only only!</span>
+    </div>
   </form>
   <a href="#/signin">Already have an account? <strong>Signin</strong> ...</a>
 </div>

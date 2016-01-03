@@ -10,6 +10,12 @@
       <li><a ng-click='logout()' href='/#/signin'>Logout</a></li>
     </ul>
     </div>
+   <!--  <div class='info'>
+      <div class='visits'><span class='count'>{{visits}}</span>Visits</div>
+      <div class='title'>{{title}}</div>
+      <div class='original'>{{url}}</div>
+      <a href='{{base_url}}/{{code}}'>{{base_url}}/{{code}}</a>
+  </div> -->
     Search<input ng-model="query">
     <ul>
       <li ng-repeat="link in data.links | filter:query | orderBy:'-visits'"><p>{{ link.title }}</p>{{ link.url }}<p><a href={{link.base_url}}/{{link.code}}>{{link.base_url}}/{{link.code}}</a></p><p>{{link.visits}} visits</p></li>
